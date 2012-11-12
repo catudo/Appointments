@@ -21,6 +21,8 @@
  */
 
 App::uses('Controller', 'Controller');
+App::uses('Model',  'ConnectionManager');
+
 
 /**
  * Application Controller
@@ -32,4 +34,38 @@ App::uses('Controller', 'Controller');
  * @link http://book.cakephp.org/2.0/en/controllers.html#the-app-controller
  */
 class AppController extends Controller {
+	
+	 public $components = array(
+        'Acl',
+           'Auth' => array(
+            'loginRedirect' => array('controller' => 'Pages', 'action' => 'display'),
+            'logoutRedirect' => array('controller' => 'Users', 'action' => 'login'),
+            'authorize' => array(
+                'Actions' => array('actionPath' => 'controllers')
+            ),
+            'authenticate' => array(
+            'Form' => array(
+                'fields' => array('username' => 'document', 'password'=>'password', )
+            )
+			)
+           
+        ), 
+            
+        
+        'Session'
+    );
+    public $helpers = array('Html', 'Form', 'Session');
+
+    public function beforeFilter() {
+        $this->Auth->loginAction = array('controller' => 'Users', 'action' => 'login'); 
+    }
+    
+    function changeDbSource($database = 'default') {
+        $db = new ConnectionManager();
+        $connected = $db->getDataSource($database);
+        if($connected->isConnected()) 
+                return true;
+        return false;
+	}
+	
 }

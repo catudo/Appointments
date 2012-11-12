@@ -1,11 +1,11 @@
 <?php
 App::uses('Controller', 'Controller');
-App::uses('Controller', 'AppController');
+App::uses('AppController', 'Controller');
 App::uses('ComponentCollection', 'Controller');
 App::uses('AclComponent', 'Controller/Component');
 App::uses('DbAcl', 'Model');
 class InstallerShell extends Shell {
-	public $uses = array('User','Group','Acos','PrimaryKey');
+	public $uses = array('User','Group','Acos','PrimaryKey','DocumentTypes');
 	public $Acl;
 	public $args;
 	public $dataSource = 'default';
@@ -22,58 +22,29 @@ class InstallerShell extends Shell {
 	function main() {
 		$this->_clean = true;
 		$this->aco_update();
+		$this->install_document_types();
 		$this->install_users_and_groups();
-		$this->_install_sqllite_primary_keys();
+		
+
 	}
 	
-	function _install_sqllite_primary_keys(){
-		/*
-		INSERT INTO "Z_PRIMARYKEY" VALUES (1, 'WIIAsset', 0, 158);
-INSERT INTO "Z_PRIMARYKEY" VALUES (2, 'WIIBackground', 0, 158);
-INSERT INTO "Z_PRIMARYKEY" VALUES (3, 'WIICaption', 0, 0);
-INSERT INTO "Z_PRIMARYKEY" VALUES (4, 'WIIDistribution', 0, 2);
-INSERT INTO "Z_PRIMARYKEY" VALUES (5, 'WIIExhibition', 0, 8);
-INSERT INTO "Z_PRIMARYKEY" VALUES (6, 'WIIExhibitionName', 0, 16);
-INSERT INTO "Z_PRIMARYKEY" VALUES (7, 'WIIFrame', 0, 1);
-INSERT INTO "Z_PRIMARYKEY" VALUES (8, 'WIIGallery', 0, 0);
-INSERT INTO "Z_PRIMARYKEY" VALUES (9, 'WIIKeyWord', 0, 316);
-INSERT INTO "Z_PRIMARYKEY" VALUES (10, 'WIILanguages', 0, 2);
-INSERT INTO "Z_PRIMARYKEY" VALUES (11, 'WIIStage', 0, 158);
-INSERT INTO "Z_PRIMARYKEY" VALUES (12, 'WIIUser', 0, 0);
-INSERT INTO "Z_PRIMARYKEY" VALUES (13, 'WIIUserAdvance', 0, 0);
-INSERT INTO "Z_PRIMARYKEY" VALUES (14, 'WIIUserConfiguration', 0, 0);
-INSERT INTO "Z_PRIMARYKEY" VALUES (15, 'WIIUserExhibitionAdvance', 0, 0);
-		*/
-		
-		$tuples =array(
-			array('Z_ENT'=>1, 'Z_NAME'=>'WIIAsset' ),
-			array('Z_ENT'=>2, 'Z_NAME'=>'WIIBackground' ),
-			array('Z_ENT'=>3, 'Z_NAME'=>'WIICaption' ),
-			array('Z_ENT'=>4, 'Z_NAME'=>'WIIDistribution' ),
-			array('Z_ENT'=>5, 'Z_NAME'=>'WIIExhibition' ),
-			array('Z_ENT'=>6, 'Z_NAME'=>'WIIExhibitionName' ),
-			array('Z_ENT'=>7, 'Z_NAME'=>'WIIFrame' ),
-			array('Z_ENT'=>8, 'Z_NAME'=>'WIIGallery' ),
-			array('Z_ENT'=>9, 'Z_NAME'=>'WIIKeyWord' ),
-			array('Z_ENT'=>10, 'Z_NAME'=>'WIILanguages' ),
-			array('Z_ENT'=>11, 'Z_NAME'=>'WIIStage' ),
-			array('Z_ENT'=>12, 'Z_NAME'=>'WIIUser' ),
-			array('Z_ENT'=>13, 'Z_NAME'=>'WIIUserAdvance' ),
-			array('Z_ENT'=>14, 'Z_NAME'=>'WIIUserConfiguration' ),
-			array('Z_ENT'=>15, 'Z_NAME'=>'WIIUserExhibitionAdvance'),
-			array('Z_ENT'=>16, 'Z_NAME'=>'WIIGalleryName'),
-			array('Z_ENT'=>18, 'Z_NAME'=>'WIIVersion'),
-			array('Z_ENT'=>19, 'Z_NAME'=>'WIIAchievement')
-		
+	
+	
+	function install_document_types(){
+		$CC = array (
+			'name' => 'CC'
 		);
 		
-		foreach ( $tuples as $value ) {
-       $this->PrimaryKey->save($value );
-       	$this->PrimaryKey->create();
-		}
+		$this->DocumentTypes->save($CC);
+		$this->DocumentTypes->create();
 		
-		$this->out("sqllite variables installed");
 		
+		$TI = array (
+			'name' => 'TI'
+		);
+		
+		$this->DocumentTypes->save($TI);
+		$this->DocumentTypes->create();
 		
 		
 		
@@ -87,39 +58,66 @@ INSERT INTO "Z_PRIMARYKEY" VALUES (15, 'WIIUserExhibitionAdvance', 0, 0);
 		$this->Group->save($superAdminGroup);
 		$superAdminUser = array (
 			'name' => 'admin',
-			'username' => 'admin',
+			'document' => 'admin',
 			'password' => 'test',
 			'group_id' => $this->Group->id,
-			'status_id' => 1
+			'status_id' => 1,
+			'document_type_id'=>1
 		);
 		
 		$this->Group->create();
 		
-		$AdminGroup = array (
-			'name' => 'ADMIN'
+		$doctor = array (
+			'name' => 'DOCTOR'
 		);
 		
-		$this->Group->save($AdminGroup);
+		
+		$this->Group->create();
+		$this->Group->save($doctor);
+		
+		$patient = array (
+			'name' => 'PATIENT'
+		);
+		
+		$this->Group->create();
+		
+		$this->Group->save($patient);
+		
 		
 		$this->User->save($superAdminUser);
+		
+		
 		$this->out('Users and Groups Installed'); 
 		$this->update_aros_acos();
 		$this->out('Aros acos Updated'); 
 	}
 	function update_aros_acos(){
+			
 		$group =  $this->Group;
 		$groupInstance = $this->Group->findByName("SUPER_ADMIN");  
 		$group->id = $groupInstance['Group']['id'];
 		$this->Acl->allow($group, 'controllers');
 		$adminGroup = $this->Group;
-		$groupInstance = $this->Group->findByName("ADMIN");  
-		$adminGroup->id =  $groupInstance['Group']['id'];
-		$this->Acl->deny($adminGroup, 'controllers');
-		$this->Acl->deny($adminGroup, 'Users');
-		$acoses = $this->Acos->find('all',array("conditions"=>array( "NOT" => array ("alias" => 'Users'),'parent_id'=>1)));
+		
+		////////////////////////
+		$patientInstance = $this->Group->findByName("PATIENT");  
+		$patientInstance->id =  $patientInstance['Group']['id'];
+		$this->Acl->deny($patientInstance, 'controllers');
+		$acoses = $this->Acos->find('all',array("conditions"=>array(  array ("alias" => 'Patient'),'parent_id'=>1)));
 		foreach ( $acoses as $key=>$value) {
-			$this->Acl->allow($adminGroup, $value['Acos']['alias']);
+			$this->Acl->allow($patientInstance, $value['Acos']['alias']);
 		}
+		
+		/////////////////////////
+		
+		$doctorInstance = $this->Group->findByName("DOCTOR");  
+		$doctorGroup->id =  $doctorInstance['Group']['id'];
+		$this->Acl->deny($doctorInstance, 'controllers');
+		$acoses = $this->Acos->find('all',array("conditions"=>array( array ("alias" => 'Doctor'),'parent_id'=>1)));
+		foreach ( $acoses as $key=>$value) {
+			$this->Acl->allow($doctorInstance, $value['Acos']['alias']);
+		}
+		
 			
 	}
 
