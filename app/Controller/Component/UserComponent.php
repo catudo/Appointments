@@ -18,7 +18,7 @@ class UserComponent extends Component {
 		$tuple = array ();
 		$userId = $user['User']['id'];
 
-		array_push($tuple,$user['User']['document'],$user['User']['first_name'].$user['User']['last_name'], ($user['User']['status_id']==1)?__("Active"):__("Inactive"),"<a class='edit' userId='$userId' href='#''>".__("edit")."</a>" );
+		array_push($tuple,$user['User']['document'],$user['User']['first_name']." ".$user['User']['last_name'], ($user['User']['status_id']==1)?__("Active"):__("Inactive"),"<a class='edit' userId='$userId' href='#''>".__("edit")."</a>" );
 		array_push($postlist, $tuple);
 	}
 	

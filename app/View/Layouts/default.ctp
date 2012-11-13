@@ -1,98 +1,146 @@
-<?php
-/**
- *
- * PHP 5
- *
- * CakePHP(tm) : Rapid Development Framework (http://cakephp.org)
- * Copyright 2005-2012, Cake Software Foundation, Inc. (http://cakefoundation.org)
- *
- * Licensed under The MIT License
- * Redistributions of files must retain the above copyright notice.
- *
- * @copyright     Copyright 2005-2012, Cake Software Foundation, Inc. (http://cakefoundation.org)
- * @link          http://cakephp.org CakePHP(tm) Project
- * @package       Cake.View.Layouts
- * @since         CakePHP(tm) v 0.10.0.1076
- * @license       MIT License (http://www.opensource.org/licenses/mit-license.php)
- */
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<!--
+		Charisma v1.0.0
 
-$cakeDescription = __d('cake_dev', 'CakePHP: the rapid development php framework');
-?>
+		Copyright 2012 Muhammad Usman
+		Licensed under the Apache License v2.0
+		http://www.apache.org/licenses/LICENSE-2.0
 
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head>
+		http://usman.it
+		http://twitter.com/halalit_usman
+		-->
+		<meta charset="utf-8">
+		<title>Free HTML5 Bootstrap Admin Template</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta name="description" content="Charisma, a fully featured, responsive, HTML5, Bootstrap admin template.">
+		<meta name="author" content="Muhammad Usman">
 
+		<!-- The styles -->
+		<link id="bs-css" href="css/bootstrap-cerulean.css" rel="stylesheet">
+		<style type="text/css">
+			body {
+				padding-bottom: 40px;
+			}
+			.sidebar-nav {
+				padding: 9px 0;
+			}
+		</style>
 
-<?php echo $this->Html->charset(); ?>
-	<title>
-	Appointments
-	</title>
-	<?php
-	echo $this->Html->css('transdmin.css');
-		echo $this->Html->meta('icon');
-		echo $this->Html->css('pepper-grinder/jquery-ui-1.9.1.custom.css');
-			echo $this->Html->script('jquery/js/jquery-1.7.2.min.js');
-			echo $this->Html->script('jquery/js/jquery-ui-1.8.21.custom.min.js');
-			echo $this->Html->script('jquery-validation/jquery.validate.min.js');
-			echo $this->Html->script('style/jNice.js');
-			echo $this->Html->script('appointments.general.js');
-			echo $this->Html->script('datatables/media/js/jquery.dataTables.js');
-			echo $this->Html->script('libraries/fillthis.jquery.js');
-					echo $this->Html->script('i18n/messages.en');
-	?>
+		<!-- The HTML5 shim, for IE6-8 support of HTML5 elements -->
+		<!--[if lt IE 9]>
+		<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+		<![endif]-->
 
+		<!-- The fav icon -->
+		<link rel="shortcut icon" href="img/favicon.ico">
 
-</head>
+		<?php
+	
+		echo $this -> Html -> css('bootstrap-cerulean.css');
+		echo $this -> Html -> css('bootstrap-responsive.css');
+		echo $this -> Html -> css('charisma-app.css');
+		echo $this -> Html -> css('fullcalendar.css');
+		echo $this -> Html -> css('fullcalendar.print.css');
+		echo $this -> Html -> css('chosen.css');
+		echo $this -> Html -> css('uniform.default.css');
+		echo $this -> Html -> css('colorbox.css');
+		echo $this -> Html -> css('jquery.cleditor.css');
+		echo $this -> Html -> css('jquery.noty.css');
+		echo $this -> Html -> css('noty_theme_default.css');
+		echo $this -> Html -> css('elfinder.min.css');
+		echo $this -> Html -> css('elfinder.theme.css');
+		echo $this -> Html -> css('jquery.iphone.toggle.css');
+		echo $this -> Html -> css('opa-icons.css');
+		echo $this -> Html -> css('uploadify.css');
 
-<body>
-	<div style="display:none" id="errorsDiv">
-		<div id='messageDiv'>
-			
+		echo $this -> Html -> meta('icon');
+		echo $this -> Html -> css('pepper-grinder/jquery-ui-1.9.1.custom.css');
+		echo $this -> Html -> script('jquery/js/jquery-1.7.2.min.js');
+		echo $this -> Html -> script('jquery/js/jquery-ui-1.8.21.custom.min.js');
+		echo $this -> Html -> script('jquery-validation/jquery.validate.min.js');
+		echo $this -> Html -> script('style/jNice.js');
+		echo $this -> Html -> script('appointments.general.js');
+		echo $this -> Html -> script('datatables/media/js/jquery.dataTables.js');
+		echo $this -> Html -> script('libraries/fillthis.jquery.js');
+		echo $this -> Html -> script('i18n/messages.en');
+		?>
+
+	</head>
+
+	<body>
+
+		<div style="display:none" id="errorsDiv">
+			<div id='messageDiv'>
+
+			</div>
+
 		</div>
-		
-	</div>
-	
-	
-	<div id="wrapper">
-    	<!-- h1 tag stays for the logo, you can use the a tag for linking the index page -->
-    	<h1><a href="#"><span>Appointments</span></a></h1>
-        
-        <div id="containerHolder">
-			<div id="container">
-        		<div id="sidebar">
-                	<ul class="sideNav">
-                		<li><a href="<?php echo $this->webroot;?>/Users/index">Patiens</a></li>
-                    </ul>
-                    <!-- // .sideNav -->
-                </div>    
-                <!-- // #sidebar -->
-                
-                <!-- h2 stays for breadcrumbs -->
-                <h2><a href="#"> <?php if(isset($title)) echo $title;  ?> </h2>
-                
-                <div id="main">
-                	
-							<?php echo $this->fetch('content'); ?>
-                    
-                </div>
-                <!-- // #main -->
-                
-                <div class="clear"></div>
-            </div>
-            <!-- // #container -->
-        </div>	
-        <!-- // #containerHolder -->
-        
-        <p id="footer">Appointments</p>
-    </div>
-    <!-- // #wrapper -->
-</body>
+		<!-- topbar starts -->
+		<div class="navbar">
+			<div class="navbar-inner">
+				<div class="container-fluid">
+					<a class="btn btn-navbar" data-toggle="collapse" data-target=".top-nav.nav-collapse,.sidebar-nav.nav-collapse"> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </a>
+					<a class="brand" href="index.html">  <span>Sisben</span></a>
+					<!-- user dropdown starts -->
+				
+
+				</div>
+			</div>
+		</div>
+		<!-- topbar ends -->
+		<div class="container-fluid">
+			<div class="row-fluid">
+
+				<!-- left menu starts -->
+				<div class="span2 main-menu-span">
+					<div class="well nav-collapse sidebar-nav">
+						<ul class="nav nav-tabs nav-stacked main-menu">
+							<li class="nav-header hidden-tablet">
+								Main
+							</li>
+							<li>
+								<a class="ajax-link" href="<?php echo $this->webroot?>Users/index"><i class="icon-home"></i><span class="hidden-tablet"> Users</span></a>
+							</li>
+							
+						</ul>
+						
+					</div><!--/.well -->
+				</div><!--/span-->
+				<!-- left menu ends -->
+
+				<noscript>
+					<div class="alert alert-block span10">
+						<h4 class="alert-heading">Warning!</h4>
+						<p>
+							You need to have <a href="http://en.wikipedia.org/wiki/JavaScript" target="_blank">JavaScript</a> enabled to use this site.
+						</p>
+					</div>
+				</noscript>
+
+				<div id="content" class="span10">
+					<!-- content starts -->
+			
+					<div class="row-fluid">
+						<div class="box span12">
+							<div class="box-header well">
+								<h2><i class="icon-info-sign"></i> Introduction</h2>
+								
+							</div>
+							<div class="box-content">
+								<?php echo $this->fetch('content'); ?>
+							</div>
+						</div>
+					</div>
+
+					<!-- content ends -->
+				</div><!--/#content.span10-->
+			</div><!--/fluid-row-->
+			
+
+		</div><!--/.fluid-container-->
+
+	</body>
 </html>
-
-
-
-
-
-
 

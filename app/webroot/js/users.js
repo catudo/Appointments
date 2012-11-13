@@ -22,7 +22,7 @@ function listUsers(){
 
 
 function edit(){
-	 $("#containerHolder").delegate(".edit", "click", function(event) {
+	 $("#content").delegate(".edit", "click", function(event) {
 	 event.preventDefault()
 	 $("#password").attr('disabled',true);
      $("#secondPassword").attr('disabled',true);
@@ -50,7 +50,7 @@ function edit(){
 }
 
 function saveUser(){
-	$("#containerHolder").delegate("#saveUserButton", "click", function(event) {
+	$("#content").delegate("#saveUserButton", "click", function(event) {
 		
 		event.preventDefault();
 		var params = $("#saveUserForm").serialize()
