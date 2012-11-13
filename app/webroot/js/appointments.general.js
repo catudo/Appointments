@@ -4,6 +4,27 @@ $(function(){
 });
 
 
+function showErrors(list){
+        var totalString="";
+        
+        $("#messageDiv").html("");
+        
+        for (message in list){
+        	totalString =totalString +"<p>"+list[message]+"</p>";
+        }
+        $("#messageDiv").html(totalString);
+        
+        $( "#errorsDiv" ).dialog({
+            modal: true,
+            buttons: {
+                Ok: function() {
+                    $( this ).dialog( "close" );
+                }
+            }
+        });
+        
+}
+
 
 function showAndHideContainers(link, container,callback){
 	 $("#content").delegate(link, "click", function(event) {
@@ -47,6 +68,7 @@ function clear(form) {
 	$(form).find(':input').each(function() {
 	        switch(this.type) {
 	            case 'hidden':
+	            	if(!$(this).hasClass("dont"))
 	                $(this).val('');
 	                break;
 	        }
@@ -59,7 +81,7 @@ function clear(form) {
 function buildTable(response,tableId,container){
 	$(container).html( '<table id="'+tableId+'" class="basic_table" style="width: 100%;"></table>' );
 	 	var tableParams = {
-        "bJQueryUI": false,
+        "bJQueryUI": true,
         "aaData": response.aaData,
         sDom: response.sDom,
         "bAutoWidth": false,
@@ -91,7 +113,7 @@ function buildTable(response,tableId,container){
 
 	}
 
-	console.log(tableParams.aoColumnDefs);
+	
 	var table = $('#'+tableId).dataTable(tableParams);
 
 	 return table;

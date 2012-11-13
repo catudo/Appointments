@@ -100,8 +100,10 @@ class InstallerShell extends Shell {
 		$adminGroup = $this->Group;
 		
 		////////////////////////
+		
 		$patientInstance = $this->Group->findByName("PATIENT");  
-		$patientInstance->id =  $patientInstance['Group']['id'];
+		
+		//$patientInstance->id =  $patientInstance['Group']['id'];
 		$this->Acl->deny($patientInstance, 'controllers');
 		$acoses = $this->Acos->find('all',array("conditions"=>array(  array ("alias" => 'Patient'),'parent_id'=>1)));
 		foreach ( $acoses as $key=>$value) {
