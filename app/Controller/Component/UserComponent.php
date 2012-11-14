@@ -18,7 +18,21 @@ class UserComponent extends Component {
 		$tuple = array ();
 		$userId = $user['User']['id'];
 
-		array_push($tuple,$user['User']['document'],$user['User']['first_name']." ".$user['User']['last_name'], ($user['User']['status_id']==1)?__("Active"):__("Inactive"),"<a class='edit' userId='$userId' href='#''>".__("edit")."</a>" );
+		array_push($tuple,$user['User']['document'],$user['User']['first_name']." ".$user['User']['last_name'], ($user['User']['status_id']==1)?__("Active"):__("Inactive"));
+		
+		$camiModel = ClassRegistry :: init('Cami');
+		$specialityModel = ClassRegistry :: init('Speciality');
+		
+		
+		if($groupId==2){
+			$cami=	$camiModel ->findById($user['User']['cami_id']);
+			$tuple[]= $cami['Cami']['name'];
+			$speciality=$specialityModel ->findById($user['User']['speciality_id']);
+			$tuple[]=$speciality['Speciality']['name'];
+		}
+		
+		$tuple[]="<a class='edit' userId='$userId' href='#''>".__("edit")."</a>" ;
+		
 		array_push($postlist, $tuple);
 	}
 	
@@ -31,10 +45,19 @@ class UserComponent extends Component {
 			),
 			array (
 				'sTitle' => __('status')
-			),array (
-				'sTitle' => ""
 			)
-			);
+		);
+		
+		
+		
+		if($groupId==2){
+			$columns[] = array ('sTitle' => 'Cami');
+			$columns[] = array ('sTitle' => 'Speciality');	
+			
+		}
+		
+		$columns[] = array ('sTitle' => '');
+		
 
 		$finalPost = array (
 			'aaData' => $postlist,

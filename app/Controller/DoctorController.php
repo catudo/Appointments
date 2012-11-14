@@ -31,36 +31,40 @@ App::uses('AppController', 'Controller');
  */
 class DoctorController extends AppController {
 
-/**
- * Controller name
- *
- * @var string
- */
-	
+	/**
+	 * Controller name
+	 *
+	 * @var string
+	 */
+	public $name = 'Doctor';
 
-/**
- * Default helper
- *
- * @var array
- */
+	var $components = array('Acl', 'User');
+
+	/**
+	 * Default helper
+	 *
+	 * @var array
+	 */
 	public $helpers = array('Html', 'Session');
 
-/**
- * This controller does not use a model
- *
- * @var array
- */
+	/**
+	 * This controller does not use a model
+	 *
+	 * @var array
+	 */
 	public $uses = array();
-	
-	public function beforeFilter(){
+
+	public function beforeFilter() {
 		//$this->Auth->allow('*');
+		$this -> Auth -> allow('login', 'logout', 'initDb');
 	}
 
-/**
- * Displays a view
- *
- * @param mixed What page to display
- * @return void
- */
+	public function index() {
+
+	
+
+	}
+
+	
 
 }

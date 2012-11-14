@@ -26,6 +26,7 @@
 			.sidebar-nav {
 				padding: 9px 0;
 			}
+			
 		</style>
 
 		<!-- The HTML5 shim, for IE6-8 support of HTML5 elements -->
@@ -60,7 +61,7 @@
 		echo $this -> Html -> script('jquery/js/jquery-1.7.2.min.js');
 		echo $this -> Html -> script('jquery/js/jquery-ui-1.8.21.custom.min.js');
 		echo $this -> Html -> script('jquery-validation/jquery.validate.min.js');
-		echo $this -> Html -> script('style/jNice.js');
+
 		echo $this -> Html -> script('appointments.general.js');
 		echo $this -> Html -> script('datatables/media/js/jquery.dataTables.js');
 		echo $this -> Html -> script('libraries/fillthis.jquery.js');
@@ -102,6 +103,12 @@
 							</li>
 							<li>
 								<a class="ajax-link" href="<?php echo $this->webroot?>Users/index"><i class="icon-home"></i><span class="hidden-tablet"> Users</span></a>
+							</li>
+							<li>
+								<a class="ajax-link" href="<?php echo $this->webroot?>Cami/index"><i class="icon-home"></i><span class="hidden-tablet"> Camis</span></a>
+							</li>
+							<li>
+								<a class="ajax-link" href="<?php echo $this->webroot?>Admindoctor/index"><i class="icon-home"></i><span class="hidden-tablet"> Doctors</span></a>
 							</li>
 							
 						</ul>

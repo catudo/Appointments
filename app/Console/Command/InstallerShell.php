@@ -5,7 +5,7 @@ App::uses('ComponentCollection', 'Controller');
 App::uses('AclComponent', 'Controller/Component');
 App::uses('DbAcl', 'Model');
 class InstallerShell extends Shell {
-	public $uses = array('User','Group','Acos','PrimaryKey','DocumentTypes');
+	public $uses = array('User','Group','Acos','PrimaryKey','DocumentTypes', 'Departament','Speciality');
 	public $Acl;
 	public $args;
 	public $dataSource = 'default';
@@ -24,10 +24,21 @@ class InstallerShell extends Shell {
 		$this->aco_update();
 		$this->install_document_types();
 		$this->install_users_and_groups();
-		
-
+		$this->install_cities();
+		$this->install_especialities();
 	}
 	
+	
+	function install_especialities(){
+		$specialities = array("Medicina General", "Odontologia", "Radioterapia" );
+		
+		foreach ($specialities as  $value) {
+			$this->Speciality->save(array('name'=>$value));
+			$this->Speciality->create();
+		}
+		
+		
+	}
 	
 	
 	function install_document_types(){
@@ -46,9 +57,23 @@ class InstallerShell extends Shell {
 		$this->DocumentTypes->save($TI);
 		$this->DocumentTypes->create();
 		
+	}
+	
+	
+	public function install_cities(){
+		$departaments = array(
+		array('name'=>'Cundinamarca', 'City'=>array(array('name'=>'Bogota'),array('name'=>'Fomeque'))),
+		array('name'=>'Antioquia', 'City'=>array(array('name'=>'medellin'),array('name'=>'Pitalito')))
 		
+		);
+		
+		foreach ($departaments as $departament) {
+			$this->Departament->saveAll($departament);
+			$this->Departament->create();
+		}
 		
 	}
+	
 	
 	function install_users_and_groups() {
 		$superAdminGroup = array (
@@ -60,6 +85,7 @@ class InstallerShell extends Shell {
 			'name' => 'admin',
 			'document' => 'admin',
 			'password' => 'test',
+			'secondPassword' => 'test',
 			'group_id' => $this->Group->id,
 			'status_id' => 1,
 			'document_type_id'=>1

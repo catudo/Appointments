@@ -11,6 +11,8 @@ class User extends AppModel {
 	public $name = 'user';
 
 	var $belongsTo = array('Group' => array('foreignKey' => 'group_id'));
+	
+	
 
 	public $actsAs = array('Acl' => array('type' => 'requester'));
 	
@@ -74,9 +76,7 @@ class User extends AppModel {
                 'on' =>'create'
             )
             
-        )
-		
-		
+        )  
     );
 	
 	
