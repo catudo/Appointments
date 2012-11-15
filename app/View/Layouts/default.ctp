@@ -111,6 +111,11 @@
 								<a class="ajax-link" href="<?php echo $this->webroot?>Admindoctor/index"><i class="icon-home"></i><span class="hidden-tablet"> Doctors</span></a>
 							</li>
 							
+							<li>
+								<a class="ajax-link" href="<?php echo $this->webroot?>Schedules/index"><i class="icon-home"></i><span class="hidden-tablet"> Schedules</span></a>
+							</li>
+							
+							
 						</ul>
 						
 					</div><!--/.well -->

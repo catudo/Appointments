@@ -150,8 +150,5 @@ class UsersController extends AppController {
 		return new CakeResponse( array('body' => json_encode($userPost), 'type' => 'json'));
 	}
 
-	public function logout() {
-		$this -> redirect($this -> Auth -> logout());
-	}
 
 }
