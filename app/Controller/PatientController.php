@@ -85,12 +85,48 @@ class PatientController extends AppController {
  	}
 	
 	public function save(){
-		
+			$params = $this->request['url']['data'];
+			$loggedUser =  $this->Session->read('Auth.User');
+			
+			$params['users_id'] = $loggedUser['id'];
+			$params['schedule_id'] = $this->request['url']['schedule_id'];
+
+			$appointmentModel = ClassRegistry::init('Appointment');
+			$appointmentModel->save($params);
+			
+			
+			$this->Session->write('appointment_id', $appointmentModel->id);
+			 
+    $this->redirect(array("controller" => "Patient", "action" => "appointment_results"));
+
+			 
+			
 		
 	}
 	
 	
 	public function appointment_results(){
+		$id  = $this->Session->read('appointment_id');;
+		
+		$appointmentModel = ClassRegistry::init('Appointment');
+		$appointment = $appointmentModel->findById($id);
+		$userModel = ClassRegistry::init('User');
+		$doctorInstance = $userModel->findById($appointment['Appointment']['doctor_id']);
+		$date = $appointment['Appointment']['date'];
+		$speciality = ClassRegistry::init('Speciality')->findById($doctorInstance['User']['speciality_id']);
+		
+		$schedule =  ClassRegistry::init('Schedule')->findById($appointment['Appointment']['schedule_id']);
+		
+		$entryHour = ($schedule['Schedule']['entry_hour']<10)?"0".$schedule['Schedule']['entry_hour']:$schedule['Schedule']['entry_hour'];
+		$entryminute = ( $schedule['Schedule']['entry_minute']<10)?"0". $schedule['Schedule']['entry_minute']: $schedule['Schedule']['entry_minute'];
+		
+		$loggedUser =  $this->Session->read('Auth.User');
+		$this -> set('group', $loggedUser['group_id']);
+		$this -> set('doctor', $doctorInstance['User']['first_name']." ".$doctorInstance['User']['last_name']);
+		$this->set("speciality",$speciality['Speciality']['name']);
+			$this->set("date",$appointment['Appointment']['date']);
+		$this->set("hour","$entryHour:$entryminute");
+		
 		
 		
 	}
@@ -98,7 +134,6 @@ class PatientController extends AppController {
 	public function list_appointments(){
 		$loggedUser =  $this->Session->read('Auth.User');
 		$this -> set('group', $loggedUser['group_id']);
-		 
 		
 	}
 	
@@ -216,6 +251,9 @@ class PatientController extends AppController {
 	private function list_schedule($userId,$date){
 		
 		$weekday = date('N', strtotime($date));
+		
+		
+		
 		$scheduleModel = ClassRegistry::init('Schedule');
 		
 		
@@ -264,7 +302,7 @@ class PatientController extends AppController {
 			 */
 			 
 			 
-			 $radio = '<input type="radio" name="schedule_id" >'.$surgery;				  
+			 $radio = '<input type="radio" name="schedule_id" value="'.$schedule['Schedule']['id'].'">'.$surgery;				  
 			$tuple[]= $radio;
 			
 			$entryHour = ($schedule['Schedule']['entry_hour']<10)?"0".$schedule['Schedule']['entry_hour']:$schedule['Schedule']['entry_hour'];
@@ -273,7 +311,7 @@ class PatientController extends AppController {
 			$tuple[] = "$entryHour:$entryminute";
 			
 			
-			if(!in_array($schedule['Schedule']['id'], $schedule))
+			if(!in_array($schedule['Schedule']['id'], $scheduleDated))
 			$postlist[]= $tuple;
 						
 		}

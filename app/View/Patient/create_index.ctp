@@ -20,7 +20,7 @@
 	    </p>
 	    
 	</fieldset>
-	
+	<?php echo $this -> Form -> input("schedule_id", array("type" => "hidden", 'name' => "schedule_id")); ?>
 	<div id="scheduleTableDiv">
 		
 	</div>

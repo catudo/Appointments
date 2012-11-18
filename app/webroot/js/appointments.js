@@ -7,13 +7,14 @@ $(function() {
 function initializeDatePicker() {
 
 	$("#date").datepicker({
-		altFormat : "dd-mm-yy",
+		dateFormat: 'yy-mm-dd',
 		onSelect : function(e, t) {
 			$("#cami_division").html("");
 			$("#especiality_division").html("");
 			$("#doctor").html("");
 			$("#divButtons").hide();
 			$("#scheduleTableDiv").html("");
+			$("#schedule_id").val("");
 
 		}
 	});
@@ -35,6 +36,7 @@ function getDropdown() {
 			},
 			type : 'POST',
 			success : function(response) {
+				$("#schedule_id").val("");
 				switch(model) {
 					case"city_id":
 						$("#cami_division").html("");
@@ -148,6 +150,7 @@ function cancel() {
 			$("#doctor").html("");
 			$("#divButtons").hide();
 			$("#scheduleTableDiv").html("");
+			$("#schedule_id").val("");
 	});
 }
 

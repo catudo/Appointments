@@ -12,10 +12,6 @@ class Appointment extends AppModel {
 			'notEmpty' => array(
                 'rule' =>'notEmpty',
                 'message'  => 'select and option'
-            ),
-			'isUnique' => array(
-                'rule'     => 'isUnique',
-                'message'  => 'name must be unique'
             )
         )
         		
@@ -24,3 +20,4 @@ class Appointment extends AppModel {
 
 
 }
+
