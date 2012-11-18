@@ -1,48 +1,96 @@
-<?php
-/**
- *
- * PHP 5
- *
- * CakePHP(tm) : Rapid Development Framework (http://cakephp.org)
- * Copyright 2005-2012, Cake Software Foundation, Inc. (http://cakefoundation.org)
- *
- * Licensed under The MIT License
- * Redistributions of files must retain the above copyright notice.
- *
- * @copyright     Copyright 2005-2012, Cake Software Foundation, Inc. (http://cakefoundation.org)
- * @link          http://cakephp.org CakePHP(tm) Project
- * @package       Cake.View.Layouts
- * @since         CakePHP(tm) v 0.10.0.1076
- * @license       MIT License (http://www.opensource.org/licenses/mit-license.php)
- */
-?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
+
+<!DOCTYPE html>
+<html lang="en">
 <head>
-<title>Admin Panel</title>
+	<!--
+		Charisma v1.0.0
 
-	<?php echo $this->Html->css('style'); ?>
-<!--[if lte IE 6]>
-   <script type="text/javascript" src="js/pngfix/supersleight-min.js"></script>
-<![endif]-->
+		Copyright 2012 Muhammad Usman
+		Licensed under the Apache License v2.0
+		http://www.apache.org/licenses/LICENSE-2.0
 
-<style type="text/css">
-#content {width:938px;}
-#login {width:300px;margin:0 auto;padding:20px;background:#f6f6f6;border:1px solid #ccc; -webkit-box-shadow: #fff 0px 4px 15px;
-	        -moz-box-shadow: #fff 0px 4px 15px; box-shadow: #fff 0px 4px 15px; behavior: url(css/PIE.htc);}
-.btn,.input {margin:8px;}
-</style>
+		http://usman.it
+		http://twitter.com/halalit_usman
+	-->
+	<meta charset="utf-8">
+	<title>Free HTML5 Bootstrap Admin Template</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="description" content="Charisma, a fully featured, responsive, HTML5, Bootstrap admin template.">
+	<meta name="author" content="Muhammad Usman">
+
+	<!-- The styles -->
+	<link id="bs-css" href="css/bootstrap-cerulean.css" rel="stylesheet">
+	<style type="text/css">
+	  body {
+		padding-bottom: 40px;
+	  }
+	  .sidebar-nav {
+		padding: 9px 0;
+	  }
+	</style>
+			<?php
+
+		echo $this -> Html -> css('bootstrap-cerulean.css');
+		echo $this -> Html -> css('bootstrap-responsive.css');
+		echo $this -> Html -> css('charisma-app.css');
+		echo $this -> Html -> css('fullcalendar.css');
+		echo $this -> Html -> css('fullcalendar.print.css');
+		echo $this -> Html -> css('chosen.css');
+		echo $this -> Html -> css('uniform.default.css');
+		echo $this -> Html -> css('colorbox.css');
+		echo $this -> Html -> css('jquery.cleditor.css');
+		echo $this -> Html -> css('jquery.noty.css');
+		echo $this -> Html -> css('noty_theme_default.css');
+		echo $this -> Html -> css('elfinder.min.css');
+		echo $this -> Html -> css('elfinder.theme.css');
+		echo $this -> Html -> css('jquery.iphone.toggle.css');
+		echo $this -> Html -> css('opa-icons.css');
+		echo $this -> Html -> css('uploadify.css');
+
+		echo $this -> Html -> meta('icon');
+		echo $this -> Html -> css('pepper-grinder/jquery-ui-1.9.1.custom.css');
+		echo $this -> Html -> script('jquery/js/jquery-1.7.2.min.js');
+		echo $this -> Html -> script('jquery/js/jquery-ui-1.8.21.custom.min.js');
+		echo $this -> Html -> script('jquery-validation/jquery.validate.min.js');
+
+		echo $this -> Html -> script('appointments.general.js');
+		echo $this -> Html -> script('datatables/media/js/jquery.dataTables.js');
+		echo $this -> Html -> script('libraries/fillthis.jquery.js');
+		echo $this -> Html -> script('i18n/messages.en');
+		?>
+
+
+	<!-- The HTML5 shim, for IE6-8 support of HTML5 elements -->
+	<!--[if lt IE 9]>
+	  <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+	<![endif]-->
+
+	<!-- The fav icon -->
+	<link rel="shortcut icon" href="img/favicon.ico">
+		
 </head>
-<body>
 
-   <div id="container" class="round10">
-      <div class="clear">&nbsp;</div>
-      <div id="content" class="left round10">
-      	<?php echo $this->fetch('content'); ?>
-      </div>
-      <div class="clear">&nbsp;</div>
-      
-   </div>
+<body>
+		<div class="container-fluid">
+		<div class="row-fluid">
+		
+			<div class="row-fluid">
+				<div class="span12 center login-header">
+					<h2>Welcome</h2>
+				</div><!--/span-->
+			</div><!--/row-->
+			
+			<div class="row-fluid">
+				<div class="well span5 center login-box">
+				<?php echo $this->fetch('content'); ?>
+			</div><!--/row-->
+				</div><!--/fluid-row-->
+		
+	</div><!--/.fluid-container-->
 
 </body>
 </html>
+
+
+
+
