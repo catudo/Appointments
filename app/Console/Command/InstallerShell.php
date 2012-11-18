@@ -135,7 +135,10 @@ class InstallerShell extends Shell {
 		foreach ( $acoses as $key=>$value) {
 			$this->Acl->allow($patientInstance, $value['Acos']['alias']);
 		}
+		$this->Acl->allow($patientInstance, "logout");
 		
+		
+		$this->Acl->allow($patientInstance, "display");
 		/////////////////////////
 		
 		$doctorInstance = $this->Group->findByName("DOCTOR");  
@@ -145,6 +148,7 @@ class InstallerShell extends Shell {
 		foreach ( $acoses as $key=>$value) {
 			$this->Acl->allow($doctorInstance, $value['Acos']['alias']);
 		}
+		$this->Acl->allow($doctorInstance, "logout");
 		
 			
 	}

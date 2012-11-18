@@ -41,6 +41,12 @@
 		
 		<div class="control-group">
 			<?php
+			echo $this -> Form -> input("surgery", array("label" => __('Surgery'), 'name' => "surgery", 'div' => false,'class'=>"input-xlarge focused"));
+			?>
+		</div>
+		
+		<div class="control-group">
+			<?php
 			echo $this -> Form -> input("password", array("label" => __('Password'), 'name' => "password", 'div' => false,'class'=>"input-xlarge focused"));
 			?>
 		</div>

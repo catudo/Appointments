@@ -93,7 +93,8 @@ class AdmindoctorController extends AppController {
 		}
 		
 	
-		
+		$loggedUser =  $this->Session->read('Auth.User');
+		$this -> set('group', $loggedUser['group_id']);
 		$this -> set('options', $documents);
 		$this -> set('specialities', $specialities);
 		$this -> set('camis', $camis);		
@@ -146,5 +147,16 @@ class AdmindoctorController extends AppController {
 	public function logout() {
 		$this -> redirect($this -> Auth -> logout());
 	}
+	
+	
+	public function changeStatus(){
+		 $this -> User -> changeStatus($this -> data['userId']);
+		return new CakeResponse(array (
+			'body' => json_encode(array('userId'=>$this -> data['userId'])),
+			'type' => 'json'
+		));
 
+		
+	}
+	
 }

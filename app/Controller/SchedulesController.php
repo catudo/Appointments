@@ -39,18 +39,18 @@ class SchedulesController extends AppController {
  * @return void
  */
 	public function index() {
-		$days = array('Monday','Tuesday','Wednesday','Thursday','Friday','Saturday','Sunday');
+	 $days = array('Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday');	
 		
 		$hours = array();
 		
 		for ($i=0; $i < 24; $i++) { 
-			$hours[$i]= $i; 
+			$hours[$i]= ($i<10)?"0$i":$i; 
 		}
 		
 		$minutes = array();
 		
 		for ($i=0; $i <= 59; $i++) { 
-			$minutes[$i]= $i; 
+			$minutes[$i]= ($i<10)?"0$i":$i; 
 		}
 		
 		
@@ -59,14 +59,21 @@ class SchedulesController extends AppController {
 		$doctorsModels = $doctorInstance->find("all",array('conditions'=>array('group_id'=>2)));	
 		
 		$doctors=array();
+		$doctors[0] = "";
 		foreach ($doctorsModels  as $doctor) {
-			$doctors[$doctor['User']['id']] = $doctor['User']['first_name']."  ".$doctor['User']['last_name'];	
-		}
 		
+			$doctors[$doctor['User']['id']] = $doctor['User']['first_name']."  ".$doctor['User']['last_name'];
+		
+		}
+		$loggedUser =  $this->Session->read('Auth.User');
+		$this -> set('group', $loggedUser['group_id']);
 		$this -> set('doctors', $doctors);
 		$this -> set('hours', $hours);
 		$this -> set('minutes', $minutes);
 		$this -> set('days', $days);
+		unset($doctors[0]);
+		$this -> set('doctorList', $doctors);
+		
 		
 		
 	}
@@ -100,52 +107,54 @@ class SchedulesController extends AppController {
 	}
 	
 	public function edit(){
-		$id = $this -> data['id'];
+		$id = $this -> data['userId'];
 		$scheduleModel = ClassRegistry::init('Schedule');
 		$schedule = $scheduleModel->findById($id);
 		return new CakeResponse( array('body' => json_encode($schedule['Schedule']), 'type' => 'json'));		
 	}
 	
 	public function listSchedules(){
-		$days = array('0'=>'Monday','1'=>'Tuesday','2'=>'Wednesday','3'=>'Thursday','4'=>'Friday','5'=>'Saturday','6'=>'Sunday');	
+		$days = array('Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday');	
 			
 		$id = $this -> data['user_id'];
+		
 		$scheduleModel = ClassRegistry::init('Schedule');
-		$schedules = $scheduleModel->find("all",array('conditions'=>array('user_id'=>$id),'order'=>array('week_day', 'entry_hour','entry_minute', 'exit_hour','exit_minute' )));
+		$schedules = $scheduleModel->find("all",array('conditions'=>array('user_id'=>$id),  
+			'order'=>array(
+				'week_day ASC', 'entry_hour ASC','entry_minute ASC', 'exit_hour ASC','exit_minute ASC' 
+			) ));
 		$postlist = array ();
 		
 		//print_r( sizeof($schedules));
 		
-		
-		for ($i=0; $i < 7; $i++) { 
-			for ($j=0; $j < sizeof($schedules); $j++) { 
-			$postlist[][]= "";
-			}	
-		}
-		
-		$i=0;
-		$dayTemp= 0;
 		foreach ($schedules as $schedule) {
-			$pass = false;	
-			if($dayTemp !=$schedule['Schedule']['week_day'])
-			$pass=true;
 			
-			$postlist[$i][intval($schedule['Schedule']['week_day'])]= $schedule['Schedule']['entry_hour']."::".$schedule['Schedule']['entry_minute']." - ".$schedule['Schedule']['exit_hour'].":: ".$schedule['Schedule']['exit_minute']; 
-			$dayTemp = 	$schedule['Schedule']['week_day'];
-			if($pass==true)
-			$i++;
-			else {
-			$i=0;	
-			}
+			$tuple = array();
+			
+			$tuple[] = $days[$schedule['Schedule']['week_day']];
+			
+			$entryHour = ($schedule['Schedule']['entry_hour']<10)?"0".$schedule['Schedule']['entry_hour']:$schedule['Schedule']['entry_hour'];
+			$entryminute = ( $schedule['Schedule']['entry_minute']<10)?"0". $schedule['Schedule']['entry_minute']: $schedule['Schedule']['entry_minute'];
+			
+			$exitHour = ( $schedule['Schedule']['exit_hour']<10)?"0". $schedule['Schedule']['exit_hour']: $schedule['Schedule']['exit_hour'];
+			$exitMinute = ( $schedule['Schedule']['exit_minute']<10)?"0".$schedule['Schedule']['exit_minute']: $schedule['Schedule']['exit_minute'];
+			
+			$tuple[] = "$entryHour:$entryminute";
+			$tuple[] = "$exitHour:$exitMinute";
+			
+			$tuple[] = "<a class='edit' userId='".$schedule['Schedule']['id']."' href='#''>".__("edit")."</a>" ;
+			$tuple[] = "<a class='delete' userId='".$schedule['Schedule']['id']."' href='#''>".__("delete")."</a>" ;
+			$postlist[]= $tuple;
+						
 		}
 		
 		
-		$columns = array ();
-		foreach($days as $column=>$value){
 		
-			$columns[] = array('sTitle' => $value);
-		}
-		
+			$columns[] = array('sTitle' => 'day');
+			$columns[] = array('sTitle' => "Entry hour");
+			$columns[] = array('sTitle' => "Exit hour");
+			$columns[] = array('sTitle' => "");
+			$columns[] = array('sTitle' => "");
 		
 		
 	

@@ -32,7 +32,7 @@ function edit(){
 			data:params,
        	 	success: function(response){
         			
-					$.fillthis(response);
+					$("#saveCamiForm").populate(response)
 
     	    }
 	    });

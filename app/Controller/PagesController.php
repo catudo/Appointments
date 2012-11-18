@@ -52,6 +52,7 @@ class PagesController extends AppController {
  * @return void
  */
 	public function display() {
-		
+		$loggedUser =  $this->Session->read('Auth.User');
+		$this -> set('group', $loggedUser['group_id']);
 	}
 }

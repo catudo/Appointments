@@ -82,6 +82,7 @@ function buildTable(response,tableId,container){
 	$(container).html( '<table id="'+tableId+'" class="basic_table" style="width: 100%;"></table>' );
 	 	var tableParams = {
         "bJQueryUI": true,
+        "aaSorting": [],
         "aaData": response.aaData,
         sDom: response.sDom,
         "bAutoWidth": false,

@@ -3,6 +3,7 @@ $(function(){
 listUsers()
 saveUser()
 edit()
+changeStatus()
 })
 
 
@@ -35,7 +36,7 @@ function edit(){
 			data:params,
        	 	success: function(response){
         			
-					$.fillthis(response);
+					$("#saveUserForm").populate(response)
 
     	    }
 	    });
@@ -70,10 +71,27 @@ function saveUser(){
     	    }
 	    });
 	    });
-	    
-	    		
+	
 }
 
+
+
+function changeStatus(){
+	 $("#content").delegate(".status", "click", function(event) {
+	 event.preventDefault();
+	 var params = {userId: $(this).attr('userId') };
+		 $.ajax({
+    	    url: webroot + "/users/changeStatus",
+    	    type: 'POST',
+			data:params,
+       	 	success: function(response){
+        			listUsers()
+	
+    	    }
+	    });
+	});
+
+}
 
 
 

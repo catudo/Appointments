@@ -26,7 +26,7 @@
 			.sidebar-nav {
 				padding: 9px 0;
 			}
-			
+
 		</style>
 
 		<!-- The HTML5 shim, for IE6-8 support of HTML5 elements -->
@@ -38,7 +38,7 @@
 		<link rel="shortcut icon" href="img/favicon.ico">
 
 		<?php
-	
+
 		echo $this -> Html -> css('bootstrap-cerulean.css');
 		echo $this -> Html -> css('bootstrap-responsive.css');
 		echo $this -> Html -> css('charisma-app.css');
@@ -83,9 +83,8 @@
 			<div class="navbar-inner">
 				<div class="container-fluid">
 					<a class="btn btn-navbar" data-toggle="collapse" data-target=".top-nav.nav-collapse,.sidebar-nav.nav-collapse"> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </a>
-					<a class="brand" href="index.html">  <span>Sisben</span></a>
+					<a class="brand" href="index.html"> <span>Sisben</span></a>
 					<!-- user dropdown starts -->
-				
 
 				</div>
 			</div>
@@ -101,23 +100,11 @@
 							<li class="nav-header hidden-tablet">
 								Main
 							</li>
-							<li>
-								<a class="ajax-link" href="<?php echo $this->webroot?>Users/index"><i class="icon-home"></i><span class="hidden-tablet"> Users</span></a>
-							</li>
-							<li>
-								<a class="ajax-link" href="<?php echo $this->webroot?>Cami/index"><i class="icon-home"></i><span class="hidden-tablet"> Camis</span></a>
-							</li>
-							<li>
-								<a class="ajax-link" href="<?php echo $this->webroot?>Admindoctor/index"><i class="icon-home"></i><span class="hidden-tablet"> Doctors</span></a>
-							</li>
-							
-							<li>
-								<a class="ajax-link" href="<?php echo $this->webroot?>Schedules/index"><i class="icon-home"></i><span class="hidden-tablet"> Schedules</span></a>
-							</li>
-							
-							
+
+							<?php echo $this -> element('User/dashboard', array("group" => $group)); ?>
+
 						</ul>
-						
+
 					</div><!--/.well -->
 				</div><!--/span-->
 				<!-- left menu ends -->
@@ -133,15 +120,15 @@
 
 				<div id="content" class="span10">
 					<!-- content starts -->
-			
+
 					<div class="row-fluid">
 						<div class="box span12">
 							<div class="box-header well">
 								<h2><i class="icon-info-sign"></i> Introduction</h2>
-								
+
 							</div>
 							<div class="box-content">
-								<?php echo $this->fetch('content'); ?>
+								<?php echo $this -> fetch('content'); ?>
 							</div>
 						</div>
 					</div>
@@ -149,7 +136,6 @@
 					<!-- content ends -->
 				</div><!--/#content.span10-->
 			</div><!--/fluid-row-->
-			
 
 		</div><!--/.fluid-container-->
 

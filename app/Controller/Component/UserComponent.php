@@ -18,7 +18,9 @@ class UserComponent extends Component {
 		$tuple = array ();
 		$userId = $user['User']['id'];
 
-		array_push($tuple,$user['User']['document'],$user['User']['first_name']." ".$user['User']['last_name'], ($user['User']['status_id']==1)?__("Active"):__("Inactive"));
+		array_push($tuple,$user['User']['document'],$user['User']['first_name']." ".$user['User']['last_name']);
+		$status = ($user['User']['status_id']==1)?__("Active"):__("Inactive");
+		$tuple[]=   "<a class='status' userId='$userId' href='#''>".$status."</a>"    ;
 		
 		$camiModel = ClassRegistry :: init('Cami');
 		$specialityModel = ClassRegistry :: init('Speciality');
@@ -70,6 +72,15 @@ class UserComponent extends Component {
 		
 		return $finalPost;
 		
+	}
+
+
+	public function changeStatus($userId){
+		$userModel = ClassRegistry::init('User');
+		$user = $userModel->findById($userId);
+		$status = ($user['User']['status_id']==0)?1:0;
+		$userModel->updateAll(array('User.status_id'=>$status),array('User.id'=>$userId));
+		return $user;  
 	}
 
 

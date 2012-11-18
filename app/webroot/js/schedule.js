@@ -1,6 +1,7 @@
 $(function(){
 selectOperation();
 save()
+edit()
 })
 
 
@@ -30,15 +31,15 @@ function selectOperation(){
 
 function edit(){
 	 $("#content").delegate(".edit", "click", function(event) {
-	 
+	 event.preventDefault();
 	 var params = {userId: $(this).attr('userId') };
 		 $.ajax({
-    	    url: webroot + "/users/edit",
+    	    url: webroot + "/Schedules/edit",
     	    type: 'POST',
 			data:params,
        	 	success: function(response){
         			
-					$.fillthis(response);
+						$("#saveScheduleForm").populate(response,{identifier:'id'})
 
     	    }
 	    });
@@ -59,7 +60,7 @@ function save(){
         			if(r.errors !=undefined){
         				showErrors(r.errors);
         			}else{
-        				clear("#saveUserForm");	
+        				clear("#saveScheduleForm");	
         				$("#doctors").val(r.id);
         				$("#doctors").change();
         				
