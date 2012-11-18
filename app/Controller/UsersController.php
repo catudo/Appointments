@@ -101,6 +101,8 @@ class UsersController extends AppController {
 						case 1:
 						$this -> redirect(array('controller' => 'pages', 'action' => 'display'));
 						break;
+						case 2:
+						$this -> redirect(array('controller' => 'doctor', 'action' => 'index'));
 						case 3:
 						$this -> redirect(array('controller' => 'patient', 'action' => 'create_index'));	
 						default:

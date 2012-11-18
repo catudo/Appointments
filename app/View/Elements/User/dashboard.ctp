@@ -20,6 +20,21 @@
 							
 <?php endif; ?>
 
+<?php if($group==2):?>					
+					<li>
+							<a class="ajax-link" href="<?php echo $this->webroot?>Doctor/main"><i class="icon-home"></i><span class="hidden-tablet"> Appointments</span></a>
+							</li>
+							<li>
+							<li>
+								<a class="ajax-link" href="<?php echo $this->webroot?>Users/logout"><i class="icon-home"></i><span class="hidden-tablet"> Logout</span></a>
+							</li>
+							
+							
+					
+<?php endif; ?>
+
+
+
 <?php if($group==3):?>					
 					<li>
 							<a class="ajax-link" href="<?php echo $this->webroot?>Patient/create_index"><i class="icon-home"></i><span class="hidden-tablet"> Create</span></a>
