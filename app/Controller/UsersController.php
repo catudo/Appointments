@@ -72,6 +72,7 @@ class UsersController extends AppController {
 		$loggedUser =  $this->Session->read('Auth.User');
 		$this -> set('group', $loggedUser['group_id']);
 		$this -> set('options', $documents);
+		$this -> set('title', "Pacients");
 
 	}
 

@@ -12,7 +12,7 @@
 		http://twitter.com/halalit_usman
 		-->
 		<meta charset="utf-8">
-		<title>Free HTML5 Bootstrap Admin Template</title>
+		<title>Sisben</title>
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<meta name="description" content="Charisma, a fully featured, responsive, HTML5, Bootstrap admin template.">
 		<meta name="author" content="Muhammad Usman">
@@ -124,7 +124,7 @@
 					<div class="row-fluid">
 						<div class="box span12">
 							<div class="box-header well">
-								<h2><i class="icon-info-sign"></i> Introduction</h2>
+								<h2><i class="icon-info-sign"></i> <?php if(isset($title)) echo $title  ?></h2>
 
 							</div>
 							<div class="box-content">

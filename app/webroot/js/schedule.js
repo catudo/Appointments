@@ -51,6 +51,8 @@ function save(){
 	$("#content").delegate("#saveSchedule", "click", function(event) {
 		
 		event.preventDefault();
+		
+		
 		var params = $("#saveScheduleForm").serialize()
 		$.ajax({
     	    url: webroot + "/Schedules/save",
@@ -61,7 +63,6 @@ function save(){
         				showErrors(r.errors);
         			}else{
         				clear("#saveScheduleForm");	
-        				console.log(r.id);
         				$("#doctors").val(r.id);
         				$("#doctors").change();
         				

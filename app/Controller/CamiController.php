@@ -75,6 +75,7 @@ class CamiController extends AppController {
 		$loggedUser =  $this->Session->read('Auth.User');
 		$this -> set('group', $loggedUser['group_id']);
 		$this -> set('departaments', $departaments);
+		$this -> set('title', "Manage Camis");
 
 	}
 
