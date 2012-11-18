@@ -39,7 +39,7 @@ class SchedulesController extends AppController {
  * @return void
  */
 	public function index() {
-	 $days = array('Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday');	
+	 $days = array('1'=>'Monday','2'=>'Tuesday','3'=>'Wednesday','4'=>'Thursday','5'=>'Friday','6'=>'Saturday','7'=>'Sunday');	
 		
 		$hours = array();
 		
@@ -82,9 +82,10 @@ class SchedulesController extends AppController {
 	public function save(){
 		
 		$scheduleModel = ClassRegistry::init('Schedule');
-
+			
+			
 		if ($scheduleModel -> save($this -> data)) {
-			return new CakeResponse( array('body' => json_encode(array("id" => $scheduleModel -> id)), 'type' => 'json'));
+			return new CakeResponse( array('body' => json_encode(array("id" => $this -> data['user_id'])), 'type' => 'json'));
 		} else {
 			$scheduleModel -> set($this -> data);
 			$errorshash = $scheduleModel -> invalidFields();
@@ -114,7 +115,7 @@ class SchedulesController extends AppController {
 	}
 	
 	public function listSchedules(){
-		$days = array('Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday');	
+		 $days = array('1'=>'Monday','2'=>'Tuesday','3'=>'Wednesday','4'=>'Thursday','5'=>'Friday','6'=>'Saturday','7'=>'Sunday');		
 			
 		$id = $this -> data['user_id'];
 		
@@ -125,7 +126,7 @@ class SchedulesController extends AppController {
 			) ));
 		$postlist = array ();
 		
-		//print_r( sizeof($schedules));
+		
 		
 		foreach ($schedules as $schedule) {
 			

@@ -138,16 +138,146 @@ class PatientController extends AppController {
 	}
 	
 	
+	
+	public function list_appointment_response(){
+		
+		
+		$loggedUser =  $this->Session->read('Auth.User');
+		$joins = array(
+		 		array(
+					'table'=>'Users',
+					'alias'=>'User',
+					'foreignKey'=>false,
+					'type'=>'inner',
+					'conditions'=>array(
+					'User.id = Appointment.users_id'
+					)
+				),
+		 		array(
+					'table'=>'Users',
+					'alias'=>'Doctor',
+					'foreignKey'=>false,
+					'type'=>'inner',
+					'conditions'=>array(
+					'Doctor.id = Appointment.doctor_id'
+					)
+				),
+				array(
+					'table'=>'Specialities',
+					'alias'=>'Speciality',
+					'foreignKey'=>false,
+					'type'=>'inner',
+					'conditions'=>array(
+					'Doctor.speciality_id = Speciality.id'
+					)
+				),
+				array(
+					'table'=>'Schedules',
+					'alias'=>'Schedule',
+					'foreignKey'=>false,
+					'type'=>'inner',
+					'conditions'=>array(
+					'Schedule.id = Appointment.schedule_id'
+					)
+				)
+				
+			);
+		
+		$fields = array("Doctor.*", "Speciality.*", "Schedule.*","Appointment.*");
+		
+		$appointments =  ClassRegistry::init('Appointment')->find("all",array('conditions'=>array('Appointment.users_id'=>$loggedUser['id']),'joins'=>$joins,'fields'=>$fields));
+		
+		$data = array();
+		foreach ($appointments as $appointment) {
+			$tuple = array();
+			$tuple[] = $appointment['Doctor']['first_name']." ".$appointment['Doctor']['last_name'];
+			$tuple[] = $appointment['Speciality']['name'];
+			$tuple[] = $appointment['Appointment']['date'];
+			$entryHour = ($appointment['Schedule']['entry_hour']<10)?"0".$appointment['Schedule']['entry_hour']:$appointment['Schedule']['entry_hour'];
+			$entryminute = ( $appointment['Schedule']['entry_minute']<10)?"0". $appointment['Schedule']['entry_minute']: $appointment['Schedule']['entry_minute'];
+			$tuple[] = "$entryHour:$entryminute";
+			$appointmentId = $appointment['Appointment']['id'];
+			$tuple[] = "<a class='cancel' appointmentId='$appointmentId' href='#''>Cancel Appointment</a>" ;
+			$data[] = $tuple;		
+		}
+		
+			$columns[] = array('sTitle' => "Doctor");
+			$columns[] = array('sTitle' => "Speciality");
+			$columns[] = array('sTitle' => "Date");
+			$columns[] = array('sTitle' => "Hour");
+			$columns[] = array('sTitle' => "");
+		
+		$finalPost = array (
+			'aaData' => $data,
+			'aoColumns' => $columns,
+			'sDom' => 'HrtF',
+			'sScrollY'=>'150px'
+
+		);
+		return new CakeResponse( array('body' => json_encode($finalPost ), 'type' => 'json'));
+		
+	} 
+	
 	public function change_password(){
+		$loggedUser =  $this->Session->read('Auth.User');
+		$this -> set('group', $loggedUser['group_id']);
 	
 	}
 	
 	
+	public function change_password_function(){
+		$loggedUser =  $this->Session->read('Auth.User');
+		$userModel = ClassRegistry::init('User');
+		
+		unset($loggedUser['Group']);
+		
+		$data = array_merge($this->data, $loggedUser);
+		
+		if($userModel->save($data))
+		return new CakeResponse( array('body' => json_encode(array('id'=>$loggedUser['id'])), 'type' => 'json'));
+		else{
+		$userModel -> set($this -> data);
+			$errorshash = $userModel -> invalidFields();
+			$errors = array();
+			foreach ($errorshash as $key => $value) {
+				array_push($errors, $value[0]);
+			}
+			return new CakeResponse( array('body' => json_encode(array("errors" => $errors)), 'type' => 'json'));
+		}
+		
+		 
+		
+	} 
 	
 	
 	public function delete_appointment(){
 		
-	}
+		$id = $this->data['id'];
+		$today = date("Y-m-d");
+		
+		$appomodel =ClassRegistry::init("Appointment");
+			
+		$appointment= $appomodel->findById($id);
+		
+		
+		$todayTime = strtotime($today);
+		$appointmentTime = strtotime($appointment['Appointment']['date']);
+		$finalPost = array();
+		
+		
+		
+		if($appointmentTime==$todayTime){
+			$finalPost['errors']= array("you could not cancel your current appointments "); 
+			
+		}else{
+			$appomodel->delete($id);
+			$finalPost['id']= $id;
+		}
+		
+		return new CakeResponse( array('body' => json_encode($finalPost ), 'type' => 'json'));
+		
+		
+		}
 	
 	
 	public function get_information(){
@@ -201,7 +331,8 @@ class PatientController extends AppController {
 				
 			$specialities = $userModel->find("all", array('conditions'=>array('cami_id'=>$camiId), 'joins'=>$joins, 'fields'=>$fields));	
 			
-			if(sizeof($specialities>0)){
+		
+			if(sizeof($specialities)>0){
 						$options[0]='';
 					foreach ($specialities as $speciality) {
 						$options[$speciality['Speciality']['id']] = $speciality['Speciality']['name']; 
@@ -287,19 +418,7 @@ class PatientController extends AppController {
 		foreach ($schedules as $schedule) {
 			
 			$tuple = array();
-			//$tuple[] = "<input type='radio' name='schedule_id' value='".$schedule['Schedule']['id']."/>";
-			/*
-			$radio ='
-			<label class="radio">
-			<div class="radio" id="uniform-optionsRadios1">
-			<span class="">
-			<input type="radio" checked="" value="'.$schedule['Schedule']['id'].'" id="optionsRadios1" name="schedule_id" style="opacity: 0;"></span></div>
-			'.$surgery.'
-			</label>
-			';
-			 * 
-			 * 
-			 */
+			
 			 
 			 
 			 $radio = '<input type="radio" name="schedule_id" value="'.$schedule['Schedule']['id'].'">'.$surgery;				  

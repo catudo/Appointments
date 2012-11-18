@@ -61,6 +61,7 @@ function save(){
         				showErrors(r.errors);
         			}else{
         				clear("#saveScheduleForm");	
+        				console.log(r.id);
         				$("#doctors").val(r.id);
         				$("#doctors").change();
         				

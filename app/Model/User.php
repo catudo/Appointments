@@ -73,7 +73,7 @@ class User extends AppModel {
             'equalString' => array(
                 'rule' =>'equalString',
                 'message'  => 'password and second password must be equals',
-                'on' =>'create'
+                
             )
             
         )  
@@ -99,16 +99,18 @@ class User extends AppModel {
 	}
 
 	public function beforeSave($options = array()) {
-		$this -> data['User']['secondPassword'] = AuthComponent::password($this -> data['User']['secondPassword']);
-		if (!array_key_exists('id', $this -> data) || $this -> data['id'] == null || $this -> data['id'] == ''){
+			
+		if (!array_key_exists('id', $this -> data['User']) || $this -> data['User']['id'] == null || $this -> data['User']['id'] == ''){
+			$this -> data['User']['secondPassword'] = AuthComponent::password($this -> data['User']['secondPassword']);
 			$this -> data['User']['status_id'] = 1;
 			$this -> data['User']['password'] = AuthComponent::password($this -> data['User']['password']);
 		}else {
-			if (array_key_exists('password', $this -> data) ) {
-				$this -> data['User']['password'] = AuthComponent::password($this -> data['password']);
+			if (array_key_exists('password', $this -> data['User']) ) {
+				$this -> data['User']['secondPassword'] = AuthComponent::password($this -> data['User']['secondPassword']);
+				$this -> data['User']['password'] = AuthComponent::password($this -> data['User']['password']);
 			} else {
-				$user = $this -> findById($this -> data['id']);
-				$this -> data['password'] = $user['User']['password'];
+				$user = $this -> findById($this -> data['User']['id']);
+				$this -> data['User']['password'] = $user['User']['password'];
 			}
 		}
 		return true;
@@ -127,11 +129,13 @@ class User extends AppModel {
 				return false;	
 		}else{
 			
-			if (array_key_exists('password', $this -> data) && $this -> data['secondPassword']  ){
+			if (array_key_exists('password', $this -> data['User']) && array_key_exists('secondPassword', $this -> data['User'])){
 				if($this ->data['User']['password'] ==$this ->data['User']['secondPassword'])
         		return true ;
 			else
 				return false;
+			}else{
+				return true;
 			}
 		}
 		
