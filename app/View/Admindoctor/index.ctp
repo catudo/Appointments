@@ -1,6 +1,6 @@
 <?php echo $this -> Html -> script('doctors.js'); ?>
 
-<div class="row-fluid">
+<div class="row-fluid" style="margin-bottom: 10px">
 	<form id="saveUserForm" >
 		<?php echo $this -> Form -> input("id", array("type" => "hidden", 'name' => "id")); ?>
 		<?php echo $this -> Form -> input("group_id", array("type" => "hidden", 'name' => "group_id", 'class' => 'dont', 'value' => 2)); ?>

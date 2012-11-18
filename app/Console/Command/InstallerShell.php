@@ -30,7 +30,7 @@ class InstallerShell extends Shell {
 	
 	
 	function install_especialities(){
-		$specialities = array("Medicina General", "Odontologia", "Radioterapia" );
+		$specialities = array("Medicina General", "Odontologia", "Radioterapia","Enfermeria" );
 		
 		foreach ($specialities as  $value) {
 			$this->Speciality->save(array('name'=>$value));
