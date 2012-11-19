@@ -7735,3 +7735,28 @@
 #1 C:\xampp\htdocs\Appointments\lib\Cake\Routing\Dispatcher.php(161): Dispatcher->_invoke(Object(UsersController), Object(CakeRequest), Object(CakeResponse))
 #2 C:\xampp\htdocs\Appointments\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
 #3 {main}
+2012-11-19 04:41:02 Error: [MissingActionException] Action UsersController::css() could not be found.
+#0 C:\xampp\htdocs\Appointments\lib\Cake\Routing\Dispatcher.php(186): Controller->invokeAction(Object(CakeRequest))
+#1 C:\xampp\htdocs\Appointments\lib\Cake\Routing\Dispatcher.php(161): Dispatcher->_invoke(Object(UsersController), Object(CakeRequest), Object(CakeResponse))
+#2 C:\xampp\htdocs\Appointments\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2012-11-19 04:41:09 Error: [MissingActionException] Action SchedulesController::css() could not be found.
+#0 C:\xampp\htdocs\Appointments\lib\Cake\Routing\Dispatcher.php(186): Controller->invokeAction(Object(CakeRequest))
+#1 C:\xampp\htdocs\Appointments\lib\Cake\Routing\Dispatcher.php(161): Dispatcher->_invoke(Object(SchedulesController), Object(CakeRequest), Object(CakeResponse))
+#2 C:\xampp\htdocs\Appointments\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2012-11-19 04:41:42 Error: [MissingActionException] Action SchedulesController::css() could not be found.
+#0 C:\xampp\htdocs\Appointments\lib\Cake\Routing\Dispatcher.php(186): Controller->invokeAction(Object(CakeRequest))
+#1 C:\xampp\htdocs\Appointments\lib\Cake\Routing\Dispatcher.php(161): Dispatcher->_invoke(Object(SchedulesController), Object(CakeRequest), Object(CakeResponse))
+#2 C:\xampp\htdocs\Appointments\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2012-11-19 04:42:06 Error: [MissingActionException] Action SchedulesController::css() could not be found.
+#0 C:\xampp\htdocs\Appointments\lib\Cake\Routing\Dispatcher.php(186): Controller->invokeAction(Object(CakeRequest))
+#1 C:\xampp\htdocs\Appointments\lib\Cake\Routing\Dispatcher.php(161): Dispatcher->_invoke(Object(SchedulesController), Object(CakeRequest), Object(CakeResponse))
+#2 C:\xampp\htdocs\Appointments\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2012-11-19 04:42:20 Error: [MissingActionException] Action SchedulesController::css() could not be found.
+#0 C:\xampp\htdocs\Appointments\lib\Cake\Routing\Dispatcher.php(186): Controller->invokeAction(Object(CakeRequest))
+#1 C:\xampp\htdocs\Appointments\lib\Cake\Routing\Dispatcher.php(161): Dispatcher->_invoke(Object(SchedulesController), Object(CakeRequest), Object(CakeResponse))
+#2 C:\xampp\htdocs\Appointments\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}

@@ -63,6 +63,12 @@
 
 		</fieldset>
 	</form>
+	<div class="row-fluid">
+			<div class="span1">
+			<button id ='saveSchedule' class="btn btn-large">SAVE</button>
+			</div>
+	</div>
+
 </div>
 <div class="row-fluid ">
 	<div class="span12">
