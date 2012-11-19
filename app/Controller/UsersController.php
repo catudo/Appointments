@@ -78,7 +78,7 @@ class UsersController extends AppController {
 
 	public function login() {
 		$this -> layout = 'loginTemplate';
-
+		$this -> Session -> setFlash("Please type your document type, document and password");
 		if ($this -> request -> is('post')) {
 			if ($this -> Auth -> login()) {
 				$userModel = ClassRegistry::init("User");
@@ -113,7 +113,7 @@ class UsersController extends AppController {
 				}
 					
 			} else {
-				$this -> Session -> setFlash(__('users.incorrectPassword'));
+				$this -> Session -> setFlash(__('User login is incorrect'));
 			}
 		}
 

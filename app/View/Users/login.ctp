@@ -1,10 +1,9 @@
    
    <div class="alert alert-info">
 						  <?php
-						  if($this->Session->flash())
+						
 						echo $this->Session->flash();
-						  else
-						  	echo "Please type your document type, document and password"
+						
 							?>
 					</div>
 					 <form class="form-horizontal" accept-charset="utf-8" method="post" id="UserLoginForm" action= <?php echo $this->webroot; ?>users/login>

@@ -7514,3 +7514,224 @@
 #1 C:\xampp\htdocs\Appointments\lib\Cake\Routing\Dispatcher.php(161): Dispatcher->_invoke(Object(UsersController), Object(CakeRequest), Object(CakeResponse))
 #2 C:\xampp\htdocs\Appointments\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
 #3 {main}
+2012-11-19 03:32:56 Error: [MissingActionException] Action UsersController::css() could not be found.
+#0 C:\xampp\htdocs\Appointments\lib\Cake\Routing\Dispatcher.php(186): Controller->invokeAction(Object(CakeRequest))
+#1 C:\xampp\htdocs\Appointments\lib\Cake\Routing\Dispatcher.php(161): Dispatcher->_invoke(Object(UsersController), Object(CakeRequest), Object(CakeResponse))
+#2 C:\xampp\htdocs\Appointments\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2012-11-19 03:36:07 Error: Fatal Error (64): Can't use method return value in write context in [C:\xampp\htdocs\Appointments\app\View\Users\login.ctp, line 4]
+2012-11-19 03:36:07 Error: [FatalErrorException] Can't use method return value in write context
+#0 C:\xampp\htdocs\Appointments\lib\Cake\Error\ErrorHandler.php(161): ErrorHandler::handleFatalError(64, 'Can't use metho...', 'C:\xampp\htdocs...', 4)
+#1 [internal function]: ErrorHandler::handleError(64, 'Can't use metho...', 'C:\xampp\htdocs...', 4, Array)
+#2 C:\xampp\htdocs\Appointments\lib\Cake\Core\App.php(926): call_user_func('ErrorHandler::h...', 64, 'Can't use metho...', 'C:\xampp\htdocs...', 4, Array)
+#3 C:\xampp\htdocs\Appointments\lib\Cake\Core\App.php(899): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2012-11-19 03:36:07 Error: [MissingActionException] Action UsersController::css() could not be found.
+#0 C:\xampp\htdocs\Appointments\lib\Cake\Routing\Dispatcher.php(186): Controller->invokeAction(Object(CakeRequest))
+#1 C:\xampp\htdocs\Appointments\lib\Cake\Routing\Dispatcher.php(161): Dispatcher->_invoke(Object(UsersController), Object(CakeRequest), Object(CakeResponse))
+#2 C:\xampp\htdocs\Appointments\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2012-11-19 03:36:18 Error: Fatal Error (64): Can't use method return value in write context in [C:\xampp\htdocs\Appointments\app\View\Users\login.ctp, line 4]
+2012-11-19 03:36:18 Error: [FatalErrorException] Can't use method return value in write context
+#0 C:\xampp\htdocs\Appointments\lib\Cake\Error\ErrorHandler.php(161): ErrorHandler::handleFatalError(64, 'Can't use metho...', 'C:\xampp\htdocs...', 4)
+#1 [internal function]: ErrorHandler::handleError(64, 'Can't use metho...', 'C:\xampp\htdocs...', 4, Array)
+#2 C:\xampp\htdocs\Appointments\lib\Cake\Core\App.php(926): call_user_func('ErrorHandler::h...', 64, 'Can't use metho...', 'C:\xampp\htdocs...', 4, Array)
+#3 C:\xampp\htdocs\Appointments\lib\Cake\Core\App.php(899): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2012-11-19 03:36:18 Error: [MissingActionException] Action UsersController::css() could not be found.
+#0 C:\xampp\htdocs\Appointments\lib\Cake\Routing\Dispatcher.php(186): Controller->invokeAction(Object(CakeRequest))
+#1 C:\xampp\htdocs\Appointments\lib\Cake\Routing\Dispatcher.php(161): Dispatcher->_invoke(Object(UsersController), Object(CakeRequest), Object(CakeResponse))
+#2 C:\xampp\htdocs\Appointments\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2012-11-19 03:36:43 Error: [MissingActionException] Action UsersController::css() could not be found.
+#0 C:\xampp\htdocs\Appointments\lib\Cake\Routing\Dispatcher.php(186): Controller->invokeAction(Object(CakeRequest))
+#1 C:\xampp\htdocs\Appointments\lib\Cake\Routing\Dispatcher.php(161): Dispatcher->_invoke(Object(UsersController), Object(CakeRequest), Object(CakeResponse))
+#2 C:\xampp\htdocs\Appointments\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2012-11-19 03:36:49 Error: [MissingActionException] Action UsersController::css() could not be found.
+#0 C:\xampp\htdocs\Appointments\lib\Cake\Routing\Dispatcher.php(186): Controller->invokeAction(Object(CakeRequest))
+#1 C:\xampp\htdocs\Appointments\lib\Cake\Routing\Dispatcher.php(161): Dispatcher->_invoke(Object(UsersController), Object(CakeRequest), Object(CakeResponse))
+#2 C:\xampp\htdocs\Appointments\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2012-11-19 03:36:56 Error: [MissingActionException] Action UsersController::css() could not be found.
+#0 C:\xampp\htdocs\Appointments\lib\Cake\Routing\Dispatcher.php(186): Controller->invokeAction(Object(CakeRequest))
+#1 C:\xampp\htdocs\Appointments\lib\Cake\Routing\Dispatcher.php(161): Dispatcher->_invoke(Object(UsersController), Object(CakeRequest), Object(CakeResponse))
+#2 C:\xampp\htdocs\Appointments\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2012-11-19 03:37:26 Error: [MissingActionException] Action UsersController::css() could not be found.
+#0 C:\xampp\htdocs\Appointments\lib\Cake\Routing\Dispatcher.php(186): Controller->invokeAction(Object(CakeRequest))
+#1 C:\xampp\htdocs\Appointments\lib\Cake\Routing\Dispatcher.php(161): Dispatcher->_invoke(Object(UsersController), Object(CakeRequest), Object(CakeResponse))
+#2 C:\xampp\htdocs\Appointments\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2012-11-19 03:37:29 Error: [MissingActionException] Action UsersController::css() could not be found.
+#0 C:\xampp\htdocs\Appointments\lib\Cake\Routing\Dispatcher.php(186): Controller->invokeAction(Object(CakeRequest))
+#1 C:\xampp\htdocs\Appointments\lib\Cake\Routing\Dispatcher.php(161): Dispatcher->_invoke(Object(UsersController), Object(CakeRequest), Object(CakeResponse))
+#2 C:\xampp\htdocs\Appointments\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2012-11-19 03:42:41 Error: Fatal Error (1): Call to a member function check() on a non-object in [C:\xampp\htdocs\Appointments\app\View\Users\login.ctp, line 4]
+2012-11-19 03:42:41 Error: [FatalErrorException] Call to a member function check() on a non-object
+#0 C:\xampp\htdocs\Appointments\lib\Cake\Error\ErrorHandler.php(161): ErrorHandler::handleFatalError(1, 'Call to a membe...', 'C:\xampp\htdocs...', 4)
+#1 [internal function]: ErrorHandler::handleError(1, 'Call to a membe...', 'C:\xampp\htdocs...', 4, Array)
+#2 C:\xampp\htdocs\Appointments\lib\Cake\Core\App.php(926): call_user_func('ErrorHandler::h...', 1, 'Call to a membe...', 'C:\xampp\htdocs...', 4, Array)
+#3 C:\xampp\htdocs\Appointments\lib\Cake\Core\App.php(899): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2012-11-19 03:42:41 Error: [MissingActionException] Action UsersController::css() could not be found.
+#0 C:\xampp\htdocs\Appointments\lib\Cake\Routing\Dispatcher.php(186): Controller->invokeAction(Object(CakeRequest))
+#1 C:\xampp\htdocs\Appointments\lib\Cake\Routing\Dispatcher.php(161): Dispatcher->_invoke(Object(UsersController), Object(CakeRequest), Object(CakeResponse))
+#2 C:\xampp\htdocs\Appointments\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2012-11-19 03:44:46 Error: Fatal Error (1): Call to a member function check() on a non-object in [C:\xampp\htdocs\Appointments\app\View\Users\login.ctp, line 4]
+2012-11-19 03:44:46 Error: [FatalErrorException] Call to a member function check() on a non-object
+#0 C:\xampp\htdocs\Appointments\lib\Cake\Error\ErrorHandler.php(161): ErrorHandler::handleFatalError(1, 'Call to a membe...', 'C:\xampp\htdocs...', 4)
+#1 [internal function]: ErrorHandler::handleError(1, 'Call to a membe...', 'C:\xampp\htdocs...', 4, Array)
+#2 C:\xampp\htdocs\Appointments\lib\Cake\Core\App.php(926): call_user_func('ErrorHandler::h...', 1, 'Call to a membe...', 'C:\xampp\htdocs...', 4, Array)
+#3 C:\xampp\htdocs\Appointments\lib\Cake\Core\App.php(899): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2012-11-19 03:44:46 Error: [MissingActionException] Action UsersController::css() could not be found.
+#0 C:\xampp\htdocs\Appointments\lib\Cake\Routing\Dispatcher.php(186): Controller->invokeAction(Object(CakeRequest))
+#1 C:\xampp\htdocs\Appointments\lib\Cake\Routing\Dispatcher.php(161): Dispatcher->_invoke(Object(UsersController), Object(CakeRequest), Object(CakeResponse))
+#2 C:\xampp\htdocs\Appointments\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2012-11-19 03:44:51 Error: Fatal Error (1): Call to a member function check() on a non-object in [C:\xampp\htdocs\Appointments\app\View\Users\login.ctp, line 4]
+2012-11-19 03:44:51 Error: [FatalErrorException] Call to a member function check() on a non-object
+#0 C:\xampp\htdocs\Appointments\lib\Cake\Error\ErrorHandler.php(161): ErrorHandler::handleFatalError(1, 'Call to a membe...', 'C:\xampp\htdocs...', 4)
+#1 [internal function]: ErrorHandler::handleError(1, 'Call to a membe...', 'C:\xampp\htdocs...', 4, Array)
+#2 C:\xampp\htdocs\Appointments\lib\Cake\Core\App.php(926): call_user_func('ErrorHandler::h...', 1, 'Call to a membe...', 'C:\xampp\htdocs...', 4, Array)
+#3 C:\xampp\htdocs\Appointments\lib\Cake\Core\App.php(899): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2012-11-19 03:44:51 Error: [MissingActionException] Action UsersController::css() could not be found.
+#0 C:\xampp\htdocs\Appointments\lib\Cake\Routing\Dispatcher.php(186): Controller->invokeAction(Object(CakeRequest))
+#1 C:\xampp\htdocs\Appointments\lib\Cake\Routing\Dispatcher.php(161): Dispatcher->_invoke(Object(UsersController), Object(CakeRequest), Object(CakeResponse))
+#2 C:\xampp\htdocs\Appointments\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2012-11-19 03:45:22 Error: Fatal Error (1): Call to a member function check() on a non-object in [C:\xampp\htdocs\Appointments\app\View\Users\login.ctp, line 5]
+2012-11-19 03:45:22 Error: [FatalErrorException] Call to a member function check() on a non-object
+#0 C:\xampp\htdocs\Appointments\lib\Cake\Error\ErrorHandler.php(161): ErrorHandler::handleFatalError(1, 'Call to a membe...', 'C:\xampp\htdocs...', 5)
+#1 [internal function]: ErrorHandler::handleError(1, 'Call to a membe...', 'C:\xampp\htdocs...', 5, Array)
+#2 C:\xampp\htdocs\Appointments\lib\Cake\Core\App.php(926): call_user_func('ErrorHandler::h...', 1, 'Call to a membe...', 'C:\xampp\htdocs...', 5, Array)
+#3 C:\xampp\htdocs\Appointments\lib\Cake\Core\App.php(899): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2012-11-19 03:45:22 Error: [MissingActionException] Action UsersController::css() could not be found.
+#0 C:\xampp\htdocs\Appointments\lib\Cake\Routing\Dispatcher.php(186): Controller->invokeAction(Object(CakeRequest))
+#1 C:\xampp\htdocs\Appointments\lib\Cake\Routing\Dispatcher.php(161): Dispatcher->_invoke(Object(UsersController), Object(CakeRequest), Object(CakeResponse))
+#2 C:\xampp\htdocs\Appointments\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2012-11-19 03:45:47 Error: [MissingActionException] Action UsersController::css() could not be found.
+#0 C:\xampp\htdocs\Appointments\lib\Cake\Routing\Dispatcher.php(186): Controller->invokeAction(Object(CakeRequest))
+#1 C:\xampp\htdocs\Appointments\lib\Cake\Routing\Dispatcher.php(161): Dispatcher->_invoke(Object(UsersController), Object(CakeRequest), Object(CakeResponse))
+#2 C:\xampp\htdocs\Appointments\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2012-11-19 03:46:00 Error: [MissingActionException] Action UsersController::css() could not be found.
+#0 C:\xampp\htdocs\Appointments\lib\Cake\Routing\Dispatcher.php(186): Controller->invokeAction(Object(CakeRequest))
+#1 C:\xampp\htdocs\Appointments\lib\Cake\Routing\Dispatcher.php(161): Dispatcher->_invoke(Object(UsersController), Object(CakeRequest), Object(CakeResponse))
+#2 C:\xampp\htdocs\Appointments\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2012-11-19 03:47:30 Error: [MissingActionException] Action UsersController::css() could not be found.
+#0 C:\xampp\htdocs\Appointments\lib\Cake\Routing\Dispatcher.php(186): Controller->invokeAction(Object(CakeRequest))
+#1 C:\xampp\htdocs\Appointments\lib\Cake\Routing\Dispatcher.php(161): Dispatcher->_invoke(Object(UsersController), Object(CakeRequest), Object(CakeResponse))
+#2 C:\xampp\htdocs\Appointments\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2012-11-19 03:47:33 Error: [MissingActionException] Action UsersController::css() could not be found.
+#0 C:\xampp\htdocs\Appointments\lib\Cake\Routing\Dispatcher.php(186): Controller->invokeAction(Object(CakeRequest))
+#1 C:\xampp\htdocs\Appointments\lib\Cake\Routing\Dispatcher.php(161): Dispatcher->_invoke(Object(UsersController), Object(CakeRequest), Object(CakeResponse))
+#2 C:\xampp\htdocs\Appointments\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2012-11-19 03:47:35 Error: [MissingActionException] Action UsersController::css() could not be found.
+#0 C:\xampp\htdocs\Appointments\lib\Cake\Routing\Dispatcher.php(186): Controller->invokeAction(Object(CakeRequest))
+#1 C:\xampp\htdocs\Appointments\lib\Cake\Routing\Dispatcher.php(161): Dispatcher->_invoke(Object(UsersController), Object(CakeRequest), Object(CakeResponse))
+#2 C:\xampp\htdocs\Appointments\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2012-11-19 03:52:25 Error: Fatal Error (1): Call to a member function check() on a non-object in [C:\xampp\htdocs\Appointments\app\View\Users\login.ctp, line 5]
+2012-11-19 03:52:25 Error: [FatalErrorException] Call to a member function check() on a non-object
+#0 C:\xampp\htdocs\Appointments\lib\Cake\Error\ErrorHandler.php(161): ErrorHandler::handleFatalError(1, 'Call to a membe...', 'C:\xampp\htdocs...', 5)
+#1 [internal function]: ErrorHandler::handleError(1, 'Call to a membe...', 'C:\xampp\htdocs...', 5, Array)
+#2 C:\xampp\htdocs\Appointments\lib\Cake\Core\App.php(926): call_user_func('ErrorHandler::h...', 1, 'Call to a membe...', 'C:\xampp\htdocs...', 5, Array)
+#3 C:\xampp\htdocs\Appointments\lib\Cake\Core\App.php(899): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2012-11-19 03:52:25 Error: [MissingActionException] Action UsersController::css() could not be found.
+#0 C:\xampp\htdocs\Appointments\lib\Cake\Routing\Dispatcher.php(186): Controller->invokeAction(Object(CakeRequest))
+#1 C:\xampp\htdocs\Appointments\lib\Cake\Routing\Dispatcher.php(161): Dispatcher->_invoke(Object(UsersController), Object(CakeRequest), Object(CakeResponse))
+#2 C:\xampp\htdocs\Appointments\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2012-11-19 03:52:53 Error: Fatal Error (1): Call to a member function flash() on a non-object in [C:\xampp\htdocs\Appointments\app\View\Users\login.ctp, line 5]
+2012-11-19 03:52:53 Error: [FatalErrorException] Call to a member function flash() on a non-object
+#0 C:\xampp\htdocs\Appointments\lib\Cake\Error\ErrorHandler.php(161): ErrorHandler::handleFatalError(1, 'Call to a membe...', 'C:\xampp\htdocs...', 5)
+#1 [internal function]: ErrorHandler::handleError(1, 'Call to a membe...', 'C:\xampp\htdocs...', 5, Array)
+#2 C:\xampp\htdocs\Appointments\lib\Cake\Core\App.php(926): call_user_func('ErrorHandler::h...', 1, 'Call to a membe...', 'C:\xampp\htdocs...', 5, Array)
+#3 C:\xampp\htdocs\Appointments\lib\Cake\Core\App.php(899): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2012-11-19 03:52:53 Error: [MissingActionException] Action UsersController::css() could not be found.
+#0 C:\xampp\htdocs\Appointments\lib\Cake\Routing\Dispatcher.php(186): Controller->invokeAction(Object(CakeRequest))
+#1 C:\xampp\htdocs\Appointments\lib\Cake\Routing\Dispatcher.php(161): Dispatcher->_invoke(Object(UsersController), Object(CakeRequest), Object(CakeResponse))
+#2 C:\xampp\htdocs\Appointments\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2012-11-19 03:53:17 Error: Fatal Error (64): Can't use method return value in write context in [C:\xampp\htdocs\Appointments\app\View\Users\login.ctp, line 5]
+2012-11-19 03:53:17 Error: [FatalErrorException] Can't use method return value in write context
+#0 C:\xampp\htdocs\Appointments\lib\Cake\Error\ErrorHandler.php(161): ErrorHandler::handleFatalError(64, 'Can't use metho...', 'C:\xampp\htdocs...', 5)
+#1 [internal function]: ErrorHandler::handleError(64, 'Can't use metho...', 'C:\xampp\htdocs...', 5, Array)
+#2 C:\xampp\htdocs\Appointments\lib\Cake\Core\App.php(926): call_user_func('ErrorHandler::h...', 64, 'Can't use metho...', 'C:\xampp\htdocs...', 5, Array)
+#3 C:\xampp\htdocs\Appointments\lib\Cake\Core\App.php(899): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2012-11-19 03:53:17 Error: [MissingActionException] Action UsersController::css() could not be found.
+#0 C:\xampp\htdocs\Appointments\lib\Cake\Routing\Dispatcher.php(186): Controller->invokeAction(Object(CakeRequest))
+#1 C:\xampp\htdocs\Appointments\lib\Cake\Routing\Dispatcher.php(161): Dispatcher->_invoke(Object(UsersController), Object(CakeRequest), Object(CakeResponse))
+#2 C:\xampp\htdocs\Appointments\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2012-11-19 03:53:36 Error: Fatal Error (1): Call to a member function check() on a non-object in [C:\xampp\htdocs\Appointments\app\View\Users\login.ctp, line 5]
+2012-11-19 03:53:36 Error: [FatalErrorException] Call to a member function check() on a non-object
+#0 C:\xampp\htdocs\Appointments\lib\Cake\Error\ErrorHandler.php(161): ErrorHandler::handleFatalError(1, 'Call to a membe...', 'C:\xampp\htdocs...', 5)
+#1 [internal function]: ErrorHandler::handleError(1, 'Call to a membe...', 'C:\xampp\htdocs...', 5, Array)
+#2 C:\xampp\htdocs\Appointments\lib\Cake\Core\App.php(926): call_user_func('ErrorHandler::h...', 1, 'Call to a membe...', 'C:\xampp\htdocs...', 5, Array)
+#3 C:\xampp\htdocs\Appointments\lib\Cake\Core\App.php(899): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2012-11-19 03:53:36 Error: [MissingActionException] Action UsersController::css() could not be found.
+#0 C:\xampp\htdocs\Appointments\lib\Cake\Routing\Dispatcher.php(186): Controller->invokeAction(Object(CakeRequest))
+#1 C:\xampp\htdocs\Appointments\lib\Cake\Routing\Dispatcher.php(161): Dispatcher->_invoke(Object(UsersController), Object(CakeRequest), Object(CakeResponse))
+#2 C:\xampp\htdocs\Appointments\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2012-11-19 03:54:08 Error: Fatal Error (1): Call to a member function check() on a non-object in [C:\xampp\htdocs\Appointments\app\View\Users\login.ctp, line 5]
+2012-11-19 03:54:09 Error: [FatalErrorException] Call to a member function check() on a non-object
+#0 C:\xampp\htdocs\Appointments\lib\Cake\Error\ErrorHandler.php(161): ErrorHandler::handleFatalError(1, 'Call to a membe...', 'C:\xampp\htdocs...', 5)
+#1 [internal function]: ErrorHandler::handleError(1, 'Call to a membe...', 'C:\xampp\htdocs...', 5, Array)
+#2 C:\xampp\htdocs\Appointments\lib\Cake\Core\App.php(926): call_user_func('ErrorHandler::h...', 1, 'Call to a membe...', 'C:\xampp\htdocs...', 5, Array)
+#3 C:\xampp\htdocs\Appointments\lib\Cake\Core\App.php(899): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2012-11-19 03:54:09 Error: [MissingActionException] Action UsersController::css() could not be found.
+#0 C:\xampp\htdocs\Appointments\lib\Cake\Routing\Dispatcher.php(186): Controller->invokeAction(Object(CakeRequest))
+#1 C:\xampp\htdocs\Appointments\lib\Cake\Routing\Dispatcher.php(161): Dispatcher->_invoke(Object(UsersController), Object(CakeRequest), Object(CakeResponse))
+#2 C:\xampp\htdocs\Appointments\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2012-11-19 03:54:14 Error: Fatal Error (1): Call to a member function check() on a non-object in [C:\xampp\htdocs\Appointments\app\View\Users\login.ctp, line 5]
+2012-11-19 03:54:14 Error: [FatalErrorException] Call to a member function check() on a non-object
+#0 C:\xampp\htdocs\Appointments\lib\Cake\Error\ErrorHandler.php(161): ErrorHandler::handleFatalError(1, 'Call to a membe...', 'C:\xampp\htdocs...', 5)
+#1 [internal function]: ErrorHandler::handleError(1, 'Call to a membe...', 'C:\xampp\htdocs...', 5, Array)
+#2 C:\xampp\htdocs\Appointments\lib\Cake\Core\App.php(926): call_user_func('ErrorHandler::h...', 1, 'Call to a membe...', 'C:\xampp\htdocs...', 5, Array)
+#3 C:\xampp\htdocs\Appointments\lib\Cake\Core\App.php(899): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2012-11-19 03:54:15 Error: [MissingActionException] Action UsersController::css() could not be found.
+#0 C:\xampp\htdocs\Appointments\lib\Cake\Routing\Dispatcher.php(186): Controller->invokeAction(Object(CakeRequest))
+#1 C:\xampp\htdocs\Appointments\lib\Cake\Routing\Dispatcher.php(161): Dispatcher->_invoke(Object(UsersController), Object(CakeRequest), Object(CakeResponse))
+#2 C:\xampp\htdocs\Appointments\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2012-11-19 03:58:30 Error: [MissingActionException] Action UsersController::css() could not be found.
+#0 C:\xampp\htdocs\Appointments\lib\Cake\Routing\Dispatcher.php(186): Controller->invokeAction(Object(CakeRequest))
+#1 C:\xampp\htdocs\Appointments\lib\Cake\Routing\Dispatcher.php(161): Dispatcher->_invoke(Object(UsersController), Object(CakeRequest), Object(CakeResponse))
+#2 C:\xampp\htdocs\Appointments\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2012-11-19 03:58:36 Error: [MissingActionException] Action UsersController::css() could not be found.
+#0 C:\xampp\htdocs\Appointments\lib\Cake\Routing\Dispatcher.php(186): Controller->invokeAction(Object(CakeRequest))
+#1 C:\xampp\htdocs\Appointments\lib\Cake\Routing\Dispatcher.php(161): Dispatcher->_invoke(Object(UsersController), Object(CakeRequest), Object(CakeResponse))
+#2 C:\xampp\htdocs\Appointments\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
